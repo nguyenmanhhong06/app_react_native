@@ -20,3 +20,8 @@ export const getMeController = async (req: Request, res: Response, next: NextFun
   const result = await usersService.getMe(user_id)
   return res.json({ message: 'Get me success', result })
 }
+export const updateMeController = async (req: Request, res: Response, next: NextFunction) => {
+  const { user_id } = req.decoded_access_token as TokenPayLoad
+  const result = await usersService.updateMe(user_id, req.body)
+  return res.json({ message: 'Update me success', result })
+}

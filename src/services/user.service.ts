@@ -34,6 +34,9 @@ class UsersService {
   async getMe(id: string) {
     return await databaseService.user.findOne({ _id: new ObjectId(id) })
   }
+  async updateMe(id: string, payload: any) {
+    return await databaseService.user.updateOne({ _id: new ObjectId(id) }, { $set: payload })
+  }
 }
 
 export const usersService = new UsersService()
