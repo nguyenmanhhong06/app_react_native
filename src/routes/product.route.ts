@@ -13,6 +13,6 @@ const productRouter = Router()
 productRouter.post('/', wrapRequestHandler(createProductController))
 productRouter.get('/', wrapRequestHandler(getAllProductController))
 productRouter.get('/:id', wrapRequestHandler(getProductIdController))
-productRouter.get('/:key', wrapRequestHandler(searchProductController))
+productRouter.get('/search/:key', wrapRequestHandler(searchProductController))
 productRouter.get('/:status', wrapRequestHandler(getProductController))
 export default productRouter
