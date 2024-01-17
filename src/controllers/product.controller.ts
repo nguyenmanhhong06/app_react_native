@@ -24,6 +24,7 @@ export const searchProductController = async (req: Request, res: Response, next:
 }
 export const getProductController = async (req: Request, res: Response, next: NextFunction) => {
   const status = req.params.status
+  console.log(status)
   const result = await productService.getProduct(status)
   return res.json({ message: 'get product success', result })
 }
