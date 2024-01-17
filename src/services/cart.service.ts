@@ -47,7 +47,11 @@ class CartService {
       .toArray()
   }
   async deleteCart(id: string, user_id: string) {
-    return await databaseService.cart.deleteOne({ product_id: new ObjectId(id), user_id: new ObjectId(user_id) })
+    console.log(id, user_id)
+    return await databaseService.cart.deleteOne({ _id: new ObjectId(id), user_id: new ObjectId(user_id) })
+  }
+  async deleteAllCart(user_id: string) {
+    return await databaseService.cart.deleteMany({ user_id: new ObjectId(user_id) })
   }
 }
 

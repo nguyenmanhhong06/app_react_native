@@ -14,5 +14,11 @@ export const getCartController = async (req: Request, res: Response, next: NextF
 }
 export const deleteCartController = async (req: Request, res: Response, next: NextFunction) => {
   const { user_id } = req.decoded_access_token as TokenPayLoad
-  await cartService.deleteCart(req.params.id, user_id)
+  const result = await cartService.deleteCart(req.params.id, user_id)
+  return res.json({ message: 'Delete cart success', result })
+}
+export const deleteAllCartController = async (req: Request, res: Response, next: NextFunction) => {
+  const { user_id } = req.decoded_access_token as TokenPayLoad
+  await cartService.deleteAllCart(user_id)
+  return res.json({ message: 'Delete cart success' })
 }
