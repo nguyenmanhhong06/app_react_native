@@ -1,4 +1,5 @@
 import { Collection, Db, MongoClient, ServerApiVersion } from 'mongodb'
+import { Cart } from '~/models/schemas/Cart.schema'
 import { Medias } from '~/models/schemas/Media.schema'
 import { Product } from '~/models/schemas/Product.schema'
 import { User } from '~/models/schemas/User.schema'
@@ -29,6 +30,9 @@ class DatabaseService {
   }
   get product(): Collection<Product> {
     return this.db.collection('products')
+  }
+  get cart(): Collection<Cart> {
+    return this.db.collection('carts')
   }
 }
 export const databaseService = new DatabaseService()

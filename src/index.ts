@@ -6,6 +6,7 @@ import cors from 'cors'
 import mediaRouter from './routes/media.route'
 import { initFolder, upload_dir } from './utills/file'
 import productRouter from './routes/product.route'
+import cartRouter from './routes/cart.route'
 
 const app = express()
 const port = 8080
@@ -18,6 +19,7 @@ app.use(
 app.use(express.json())
 app.use('/users', usersRouter)
 app.use('/products', productRouter)
+app.use('/carts', cartRouter)
 app.use('/medias', mediaRouter)
 app.use('/static', express.static(upload_dir))
 initFolder()
